@@ -9,13 +9,14 @@ sub GetContent()
     regionDex = getConstants("REGION_DEX")
     m.rootChildren = []
     m.rows = {}
-    GetDex(regionDex.kantoId)
-    GetDex(regionDex.johtoId)
-    GetDex(regionDex.hoennId)
-    GetDex(regionDex.sinnohId)
+    GetDex(regionDex.KANTO_ID, false)
+    GetDex(regionDex.JOHTO_ID, false)
+    GetDex(regionDex.HOENN_ID, true)
+    ' GetDex(regionDex.SINNOH_ID)
+    ' GetDex(regionDex.UNOVA_ID)
 end sub
 
-function GetDex(dexId)
+function GetDex(dexId as integer, isLastInitialRow as boolean) as void
     xfer = CreateObject("roURLTransfer")
     xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
     xfer.SetURL("https://pokeapi.co/api/v2/pokedex/"+ dexId.ToStr() + "/")
@@ -47,7 +48,9 @@ function GetDex(dexId)
         }, true)
         ' populate content field with root content node.
         ' Observer(see OnMainContentLoaded in MainScene.brs) is invoked at that moment
-        m.top.content = contentNode
+        if(isLastInitialRow) then
+            m.top.content = contentNode
+        end if
     end if
 end function
 
