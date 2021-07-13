@@ -2,7 +2,8 @@
 
 
 <component name="MainLoaderTask" extends="Task">
-    <script type="text/brightscript" uri="utils/constants.brs" />
+    <script type="text/brightscript" uri="pkg:/components/utils/constants.brs" />
+    <script type="text/brightscript" uri="pkg:/components/shared/functions.brs" />
 
     <interface>
         <field id="content" type="node" />
