@@ -22,6 +22,8 @@
                 height="180"
                 loadWidth="320"
                 loadHeight="180"
+                loadSync="true"
+                loadingBitmapUri = "https://cdn.discordapp.com/attachments/812704707209592895/865047548115681319/PinClipart.com_pokeball-clip-art_5584097.png"
             />
         </Rectangle>
 
