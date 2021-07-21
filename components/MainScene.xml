@@ -6,6 +6,7 @@
     <script type="text/brightscript" uri="UILogic/ContentTaskLogic.brs" />
     <script type="text/brightscript" uri="UILogic/GridScreenLogic.brs" />
     <script type="text/brightscript" uri="utils/constants.brs" />
+    <script type="text/brightscript" uri="pkg:/source/utils.brs" />
     <children>
          <!-- Overhang with Roku Developers logo -->
          <Overhang

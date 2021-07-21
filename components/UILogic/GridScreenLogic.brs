@@ -8,7 +8,23 @@ sub ShowGridScreen()
 end sub
 
 sub OnGridScreenItemSelected(event as Object)
-    ' TODO: Implement when a detaisl screen is ready
-    ' grid = event.GetRoSGNode()
-    ' m.selectedIndex = event.GetData()
+    grid = event.GetRoSGNode()
+    content = grid.content
+    buttonIndex = event.getData() ' index of selected button
+    rowIndex = 0
+    itemIndex = 1
+    selectedRow = buttonIndex[rowIndex]
+    rowContent = grid.content.GetChild(selectedRow)
+    
+    selectedItem = rowContent.GetChild(buttonIndex[itemIndex])
+    
+    if selectedItem.isSeeMore then
+        OnSeeMoreItemSelected(selectedItem)
+    end if    
+end sub
+
+sub OnSeeMoreItemSelected(selectedItem as Object)
+    ' TODO: Implement when the grid screen for all pokemons is ready
+    children = []
+    children.Append(CloneChildren(selectedItem.content))
 end sub

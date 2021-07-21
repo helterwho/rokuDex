@@ -7,6 +7,7 @@ end sub
 
 sub GetContent()
     m.rootChildren = []
+    m.liteRootChildren = []
     m.rows = {}
     getInitialRegions()
 end sub

@@ -4,6 +4,7 @@
     <script type="text/brightscript" uri="GridScreen.brs" />
     <script type="text/brightscript" uri="pkg:/components/utils/constants.brs" />
     <script type="text/brightscript" uri="pkg:/components/shared/functions.brs" />
+    <script type="text/brightscript" uri="pkg:/source/utils.brs" />
 	 <interface>
         <!-- Specifies the content for the Grid -->
         <field id="content" type="node" alias="RowList.content" />

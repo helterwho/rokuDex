@@ -17,6 +17,7 @@ function GetDex(dexId as integer, isLastInitialRow as boolean) as object
 
 
     rootChildren = m.rootChildren
+    liteRootChildren = m.liteRootChildren
     rows = m.rows
 
     ' parse the feed and build a tree of ContentNodes to populate the GridView
@@ -26,13 +27,37 @@ function GetDex(dexId as integer, isLastInitialRow as boolean) as object
             value = json.Lookup(category)
             if Type(value) = "roArray" and category = "pokemon_entries"
                 row = {}
+                liteRow = {}
                 regionName = getInitialStringUppercased(json.region.name)
                 row.title = regionName + " Dex"
                 row.children = []
+
+                liteRow.title = regionName + " Dex"
+                liteRow.children = []
+                i = 0
                 for each item in value ' parse items and push them to row
-                    itemData = GetItemData(item.pokemon_species)
+                    itemData = GetItemData(item.pokemon_species)    
+                    itemData.isSeeMore = false
                     row.children.Push(itemData)
+                    if(i < 10) then
+                        liteItemData = GetItemData(item.pokemon_species)    
+                        liteItemData.isSeeMore = false
+                        liteRow.children.Push(liteItemData)
+                    end if
+                    i = i + 1
                 end for
+
+                completeContent = {
+                    title: "See more"
+                    content: row
+                    isSeeMore: true
+                    hdPosterURL: "https://media.discordapp.net/attachments/812704707209592895/867220334197211136/unknown.png"
+                }
+
+                liteRow.children.Push(completeContent)
+                liteRootChildren.Push(liteRow)
+
+                ' TODO: remove rootChildren and add liteRootChildren to contentNode when screen of all pokemon in grid is available  
                 rootChildren.Push(row)
             end if
         end for
