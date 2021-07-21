@@ -4,6 +4,6 @@ Initial development still in progress, the idea is to have a pokedex in a roku p
 
 
 
-https://user-images.githubusercontent.com/20687938/125381042-9a9d3f80-e369-11eb-9c34-cf5ce4db4b0c.mp4
+https://user-images.githubusercontent.com/20687938/126044263-f9610d09-c8e6-41fe-b399-dd5d78b8b4ae.mp4
 
 
