@@ -1,5 +1,3 @@
-
-
 sub OnContentSet() ' invoked when item metadata retrieved
     content = m.top.itemContent
     ' set poster uri if content is valid

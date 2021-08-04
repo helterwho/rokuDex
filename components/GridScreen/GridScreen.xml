@@ -38,7 +38,6 @@
             focusXOffset="[50]"
             showRowLabel="[true]"
             rowFocusAnimationStyle="fixedFocus"
-            showRowCounter="true"
         />
     </children>
 </component>

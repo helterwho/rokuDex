@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+
+<component name="DetailsScreen" extends="Group"  initialFocus="fullDexPosterGrid" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+    <script type="text/brightscript" uri="DetailsScreen.brs" />
+    <script type="text/brightscript" uri="pkg:/source/utils.brs" />
+    <interface>
+        <!-- Content fields -->
+        <field id="content" type="node" />
+        <!-- @WriteOnly  -->
+        <!-- Manually focus on desired item. This field must be set after setting the content field. -->
+        <field id="jumpToItem" type="integer" onChange="OnJumpToItem" value="0" alwaysNotify="true" />
+        <!-- tells what item is currently focused  -->
+        <field id="itemFocused" type="integer" alwaysNotify="true" />     
+        <field id="buttonSelected" type="integer" alias="buttons.itemSelected" />
+    </interface>
+    <children>
+        <Rectangle
+            translation="[100, 100]">
+            <Label
+                id="fullDexLabel"
+                translation="[75,32]"
+                text="Building PosterGrid... "
+            />
+
+            <PosterGrid
+                id="fullDexPosterGrid"
+                translation="[75,100]"
+                basePosterSize="[171,209]"
+                itemSpacing="[32,32]"
+                caption1NumLines="1"
+                caption2NumLines="1"
+                numColumns="5"
+                numRows="4"
+                loadingBitmapUri = "https://media.discordapp.net/attachments/812704707209592895/867236648135819314/5e20ccc6e4f74c84b42ad131078386b0_back.png"
+            />
+            <Group>
+                <LabelList
+                    id="buttons"
+                    numRows="3"
+                    itemSpacing="[0,10]"
+                    itemSize="[593, 48]"
+                />
+            </Group>
+        </Rectangle>
+    </children>
+</component>

@@ -3,7 +3,7 @@ function valid(item) as Boolean
 end function
 
 function GetDex(dexId as integer, isLastInitialRow as boolean) as object
-    
+    maxItemsPerRow = 10
     if not valid(m.request)
         xfer = CreateObject("roURLTransfer")
         xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
@@ -39,7 +39,7 @@ function GetDex(dexId as integer, isLastInitialRow as boolean) as object
                     itemData = GetItemData(item.pokemon_species)    
                     itemData.isSeeMore = false
                     row.children.Push(itemData)
-                    if(i < 10) then
+                    if(i < maxItemsPerRow) then
                         liteItemData = GetItemData(item.pokemon_species)    
                         liteItemData.isSeeMore = false
                         liteRow.children.Push(liteItemData)
@@ -56,15 +56,13 @@ function GetDex(dexId as integer, isLastInitialRow as boolean) as object
 
                 liteRow.children.Push(completeContent)
                 liteRootChildren.Push(liteRow)
-
-                ' TODO: remove rootChildren and add liteRootChildren to contentNode when screen of all pokemon in grid is available  
                 rootChildren.Push(row)
             end if
         end for
         ' set up a root ContentNode to represent rowList on the GridScreen
         contentNode = CreateObject("roSGNode", "ContentNode")
         contentNode.Update({
-            children: rootChildren
+            children: liteRootChildren
         }, true)
         ' populate content field with root content node.
         ' Observer(see OnMainContentLoaded in MainScene.brs) is invoked at that moment
@@ -79,19 +77,15 @@ function GetItemData(pkmn as Object) as Object
     index = pkmn.url.replace("https://pokeapi.co/api/v2/pokemon-species/", "").replace("/", "")
     pkmnName = getInitialStringUppercased(pkmn.name)
     item = {}
-    ' if pkmn.longDescription <> invalid
-    '     item.description = pkmn.longDescription
-    ' else
-    '     item.description = pkmn.shortDescription
-    ' end if
-    item.hdPosterURL = "https://pokeres.bastionbot.org/images/pokemon/" + index.ToStr() +".png"
+    additional = ""
+    if index.toInt() < 10 then
+        additional = "00"
+    else if index.toInt() < 100
+        additional = "0"
+    end if
+
+    item.hdPosterURL = "https://d24qbgzv5meel.cloudfront.net/pokearts/official/pokedex/" + additional + index.ToStr() +"_f1.png"
     item.title = "#" + index.ToStr() + " " + pkmnName
-    ' item.releaseDate = pkmn.releaseDate
-    ' item.id = pkmn.i
-    ' if pkmn.content <> invalid
-    '     ' populate length of content to be displayed on the GridScreen
-    '     item.length = pkmn.content.duration
-    ' end if
     return item
 end function
 

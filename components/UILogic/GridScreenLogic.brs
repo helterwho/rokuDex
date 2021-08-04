@@ -20,11 +20,9 @@ sub OnGridScreenItemSelected(event as Object)
     
     if selectedItem.isSeeMore then
         OnSeeMoreItemSelected(selectedItem)
-    end if    
+    end if
 end sub
 
 sub OnSeeMoreItemSelected(selectedItem as Object)
-    ' TODO: Implement when the grid screen for all pokemons is ready
-    children = []
-    children.Append(CloneChildren(selectedItem.content))
+    ShowDetailsScreen(selectedItem) 
 end sub

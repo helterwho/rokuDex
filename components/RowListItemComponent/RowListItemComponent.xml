@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (c) 2020 Roku, Inc. All rights reserved. -->
-
 <component name="RowListItemComponent" extends="Group" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
     <interface>
       <field id="itemContent" type="node" onChange="OnContentSet" />
@@ -23,7 +21,7 @@
                 loadWidth="320"
                 loadHeight="180"
                 loadSync="true"
-                loadingBitmapUri = "https://cdn.discordapp.com/attachments/812704707209592895/865047548115681319/PinClipart.com_pokeball-clip-art_5584097.png"
+                loadingBitmapUri = "https://media.discordapp.net/attachments/812704707209592895/867236890712473671/unknown.png"
             />
         </Rectangle>
 

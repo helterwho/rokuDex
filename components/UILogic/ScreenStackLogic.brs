@@ -22,8 +22,7 @@ sub CloseScreen(node as Object)
     if node = invalid OR (m.screenStack.Peek() <> invalid AND m.screenStack.Peek().IsSameNode(node))
         last = m.screenStack.Pop() ' remove screen from screenStack
         last.visible = false ' hide screen
-        m.top.RemoveChild(node) ' remove screen from scene
-        
+        m.top.RemoveChild(last)
         ' take previous screen and make it visible
         prev = m.screenStack.Peek()
         if prev <> invalid
