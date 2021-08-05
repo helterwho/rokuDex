@@ -2,4 +2,4 @@
 
 Initial development still in progress, the idea is to have a pokedex in a roku project.
 
-https://user-images.githubusercontent.com/20687938/128102031-d4090fe6-3de2-4d7a-87d5-777c7e0e6c9a.mp4
+https://user-images.githubusercontent.com/20687938/128285290-7ac07a63-41ca-4b3b-9464-61b72c29b2b4.mp4
