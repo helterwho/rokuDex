@@ -26,6 +26,10 @@
 	        numLines="3"
 			translation="[130,220]"
 	    />
+        <Poster
+            id="backgroundImage"
+            translation="[560,0]"
+        />
         <RowList
             itemComponentName="RowListItemComponent"
             id="rowList"

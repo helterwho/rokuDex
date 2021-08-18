@@ -4,13 +4,13 @@ end function
 
 function GetDex(dexId as integer, isLastInitialRow as boolean) as object
     maxItemsPerRow = 10
-    if not valid(m.request)
-        xfer = CreateObject("roURLTransfer")
-        xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
-        m.request = xfer
-    else
-        xfer = m.request
-    end if
+    xfer = CreateObject("roURLTransfer")
+    xfer.EnableEncodings(true)
+    xfer.RetainBodyOnError(true)
+    xfer.InitClientCertificates()
+
+    xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
+    
 
     xfer.SetURL("https://pokeapi.co/api/v2/pokedex/"+ dexId.ToStr() + "/")
     rsp = xfer.GetToString()
@@ -84,7 +84,8 @@ function GetItemData(pkmn as Object) as Object
         additional = "0"
     end if
 
-    item.hdPosterURL = "https://d24qbgzv5meel.cloudfront.net/pokearts/official/pokedex/" + additional + index.ToStr() +"_f1.png"
+    item.hdPosterURL = "http://www.psypokes.com/dex/picdex/globallink/300/" + additional + index.ToStr() + ".png"
+    item.alternativePosterURL = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + additional + index.ToStr() +".png"
     item.title = "#" + index.ToStr() + " " + pkmnName
     return item
 end function

@@ -9,7 +9,7 @@ sub Init()
     m.titleLabel = m.top.FindNode("titleLabel")
     m.top.ObserveField("visible", "onVisibleChange")
     m.rowList.ObserveField("rowItemFocused", "OnItemFocused")
-
+    
     regionDex = getConstants("REGION_DEX")
     allRegions = []
     for each region in regionDex
@@ -46,6 +46,11 @@ sub OnItemFocused() ' invoked when another item is focused
     m.descriptionLabel.text = item.description
     m.titleLabel.text = item.title
 
+    m.background = m.top.findNode("backgroundImage")
+    m.background.width = 630
+    m.background.height = 360
+    m.background.uri = item.alternativePosterURL
+    
     if isToLoadMoreRowContent then
         for each region in m.allRegions
             if not region.status
