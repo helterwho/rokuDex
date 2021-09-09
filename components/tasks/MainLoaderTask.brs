@@ -14,7 +14,7 @@ end sub
 
 function getInitialRegions() as Object
     regionDex = getConstants("REGION_DEX")
-    kanto = GetDex(regionDex.KANTO_ID, false)
-    kantoPlusJohto = GetDex(regionDex.JOHTO_ID, false)
-    return GetDex(regionDex.HOENN_ID, true)
+    kanto = GetDex(regionDex.KANTO_ID, m.rootChildren, m.liteRootChildren, m.rows, false)
+    kantoPlusJohto = GetDex(regionDex.JOHTO_ID, m.rootChildren, m.liteRootChildren, m.rows, false)
+    return GetDex(regionDex.HOENN_ID, m.rootChildren, m.liteRootChildren, m.rows, true)
 end function

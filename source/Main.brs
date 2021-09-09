@@ -1,3 +1,17 @@
+sub RunUserInterface(args)
+if args.RunTests = "true" and type(TestRunner) = "Function" then
+        Runner = TestRunner()
+
+        Runner.SetTestFilePrefix("Test__")
+        Runner.Logger.SetVerbosity(3)
+        Runner.SetFailFast(true)
+        
+        Runner.Run()
+    end if
+    Main()
+end sub
+
+
 ' Channel entry point
 sub Main()
     ShowChannelRSGScreen()

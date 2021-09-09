@@ -2,8 +2,7 @@ function valid(item) as Boolean
     return type(item).inStr("Invalid") = -1 and type(item) <> "<uninitialized>"
 end function
 
-function GetDex(dexId as integer, isLastInitialRow as boolean) as object
-    maxItemsPerRow = 10
+function GetDex(dexId as integer, rootChildren, liteRootChildren, rows, isLastInitialRow as boolean, maxItemsPerRow = 10) as object
     xfer = CreateObject("roURLTransfer")
     xfer.EnableEncodings(true)
     xfer.RetainBodyOnError(true)
@@ -14,11 +13,6 @@ function GetDex(dexId as integer, isLastInitialRow as boolean) as object
 
     xfer.SetURL("https://pokeapi.co/api/v2/pokedex/"+ dexId.ToStr() + "/")
     rsp = xfer.GetToString()
-
-
-    rootChildren = m.rootChildren
-    liteRootChildren = m.liteRootChildren
-    rows = m.rows
 
     ' parse the feed and build a tree of ContentNodes to populate the GridView
     json = ParseJson(rsp)
@@ -66,7 +60,7 @@ function GetDex(dexId as integer, isLastInitialRow as boolean) as object
         }, true)
         ' populate content field with root content node.
         ' Observer(see OnMainContentLoaded in MainScene.brs) is invoked at that moment
-        if(isLastInitialRow) then
+        if(isLastInitialRow and valid(m.top)) then
             m.top.content = contentNode
         end if
     end if

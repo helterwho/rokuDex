@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="Test__functions" extends="Node">
+	<interface>
+		<function name="TestFramework__RunNodeTests"/>
+	</interface>
+	
+	<script type="text/brightscript" uri="pkg:/components/tests/shared/Test__functions.brs" />
+	<script type="text/brightscript" uri="pkg:/components/shared/functions.brs" />
+    <script type="text/brightscript" uri="pkg:/source/testFramework/UnitTestFramework.brs"/>
+
+</component>
