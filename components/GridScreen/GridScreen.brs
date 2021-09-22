@@ -10,6 +10,13 @@ sub Init()
     m.top.ObserveField("visible", "onVisibleChange")
     m.rowList.ObserveField("rowItemFocused", "OnItemFocused")
     
+
+    m.backgroundApp = m.top.findNode("backgroundApp")
+    backgroundAdapter(m.backgroundApp, 1280, 720)
+
+    m.backgroundShadow = m.top.findNode("backgroundShadow")
+    backgroundAdapter(m.backgroundShadow, 600, 720)
+
     regionDex = getConstants("REGION_DEX")
     allRegions = []
     for each region in regionDex
@@ -23,6 +30,11 @@ sub Init()
     allRegions.SortBy("id")
     m.allRegions = allRegions 
 end sub
+
+function backgroundAdapter(background, width as integer, height as integer) as void
+    background.width = width
+    background.height = height
+end function
 
 sub OnVisibleChange() ' invoked when GridScreen change visibility
     if m.top.visible = true
@@ -44,7 +56,13 @@ sub OnItemFocused() ' invoked when another item is focused
     row = m.rowList.content.GetChild(focusedIndex[rowPosition])
     item = row.GetChild(focusedIndex[itemPosition])
     m.descriptionLabel.text = item.description
+    descriptionFont  = CreateObject("roSGNode", "Font")
+
     m.titleLabel.text = item.title
+    titleFont  = CreateObject("roSGNode", "Font")
+    titleFont.uri = "pkg:/fonts/Montserrat-SemiBold.ttf"
+    titleFont.size = 60
+    m.titleLabel.font = titleFont
 
     m.background = m.top.findNode("backgroundImage")
     m.background.width = 630

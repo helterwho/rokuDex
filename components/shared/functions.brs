@@ -45,7 +45,7 @@ function GetDex(dexId as integer, rootChildren, liteRootChildren, rows, isLastIn
                     title: "See more"
                     content: row
                     isSeeMore: true
-                    hdPosterURL: "https://media.discordapp.net/attachments/812704707209592895/867220334197211136/unknown.png"
+                    hdPosterURL: "https://cdn.discordapp.com/attachments/812704707209592895/890021709137215568/unknown.png"
                 }
 
                 liteRow.children.Push(completeContent)
@@ -80,7 +80,8 @@ function GetItemData(pkmn as Object) as Object
 
     item.hdPosterURL = "http://www.psypokes.com/dex/picdex/globallink/300/" + additional + index.ToStr() + ".png"
     item.alternativePosterURL = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + additional + index.ToStr() +".png"
-    item.title = "#" + index.ToStr() + " " + pkmnName
+    item.dexNumber = "#" + index.ToStr() 
+    item.title = pkmnName
     return item
 end function
 

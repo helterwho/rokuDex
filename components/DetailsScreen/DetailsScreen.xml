@@ -14,6 +14,10 @@
         <field id="buttonSelected" type="integer" alias="buttons.itemSelected" />
     </interface>
     <children>
+        <Poster
+            id="backgroundDetailsScreen"
+            uri="https://cdn.discordapp.com/attachments/812704707209592895/889964591939997796/pokemon_wallpaper___pokeball_by_kennedyzak-d5y9x2z.png"
+        />
         <Rectangle
             translation="[100, 100]">
             <Label

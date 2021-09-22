@@ -11,6 +11,17 @@
         <field id="rowItemSelected" type="intarray" alwaysnotify="true" alias="RowList.rowItemSelected" />
     </interface>
     <children>
+
+        <Poster
+            id="backgroundApp"
+            uri="https://cdn.discordapp.com/attachments/812704707209592895/889954181811699712/unknown.png"
+        />
+
+        <Poster
+            id="backgroundShadow" 
+            uri="https://cdn.discordapp.com/attachments/812704707209592895/890027989885132840/vzlR8bnez0Wg0fPgIMACOqDIOOXZmBAAAAABJRU5ErkJggg.png"
+        />
+
          <!-- Label with title and length of content -->
         <Label
 	        id="titleLabel"
